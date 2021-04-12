@@ -1,3 +1,3 @@
 # Flinks
 
-The official repository of Flinks
+The official repository of the Flinks app
