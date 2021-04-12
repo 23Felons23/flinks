@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "915523829226",
+    "project_id": "flinks-7aa88",
+    "storage_bucket": "flinks-7aa88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915523829226:android:3fb10146b0f184f121c693",
+        "android_client_info": {
+          "package_name": "com.example.flink_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915523829226-k0idto5jrtcctjprqpvbisbt10fkv43b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flink_app",
+            "certificate_hash": "380865c2cd1bfa5dcd1cbbff5bd4e14e6c85afa9"
+          }
+        },
+        {
+          "client_id": "915523829226-i7vh3ku3jh3klkfm1d7qvdmk3q5eg1bd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa2LWEVCJoQXAzYqkR009hBNeJ_2OxlOo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915523829226-i7vh3ku3jh3klkfm1d7qvdmk3q5eg1bd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
