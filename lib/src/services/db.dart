@@ -14,7 +14,7 @@ class DatabaseService {
 
   //Stream for the user's flinks
   Stream<List<Flink>> streamUserFlinks() {
-    final ref = _db.collection('users').doc(user.uid).collection('flinks');
+    final ref = _db.collection('users').doc(user.uid).collection('flinks').orderBy('timestamp', descending: true);
 
     return ref
         .snapshots()
@@ -23,8 +23,10 @@ class DatabaseService {
 
   Future<DocumentReference> addFlink(String url, String description) {
     return _db.collection('users').doc(user.uid).collection('flinks').add({
+      // 'position' => get la dernière position set
       'url': url,
-      'description': description
+      'description': description,
+      'timestamp': FieldValue.serverTimestamp()
     });
   }
 }

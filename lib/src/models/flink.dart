@@ -4,8 +4,9 @@ class Flink {
   //final String title;
   final String url;
   final String description;
+  final Timestamp timestamp;
 
-  Flink({/*this.title,*/ this.url, this.description});
+  Flink({/*this.title,*/ this.url, this.description, this.timestamp});
 
   factory Flink.fromFirestore(DocumentSnapshot doc) {
     Map data = doc.data();
@@ -13,7 +14,8 @@ class Flink {
     return Flink(
       //title: data['title'] ?? '',
       url: data['url'] ?? '',
-      description: data['description'] ?? ''
+      description: data['description'] ?? '',
+      timestamp: data['timestamp'] ?? ''
     );
   }
 }
