@@ -39,7 +39,7 @@ class _FlinkFormState extends State<FlinkForm> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.black26,
-      padding: new EdgeInsets.fromLTRB(25.0, 15.0, 5.0, 0.0),
+      padding: new EdgeInsets.fromLTRB(25.0, 35.0, 5.0, 0.0),
       child: Column(children: [
         /**TextField(
             controller: _titleTextController,
