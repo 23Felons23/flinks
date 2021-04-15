@@ -35,7 +35,7 @@ class DatabaseService {
     });
   }
 
-  deleteFlink(String flinkId) {
+  Future<void> deleteFlink(String flinkId) {
     return _db.collection('users').doc(user.uid).collection('flinks').doc(flinkId).delete();
   }
 }
