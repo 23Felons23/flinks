@@ -1,5 +1,6 @@
 import 'package:flink_app/src/ui/screens/flink_details.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import '../../models/flink.dart';
 
@@ -29,6 +30,12 @@ class FlinkList extends StatelessWidget {
                           style: TextStyle(fontSize: 15.0),
                         ),
                       ),
+                onTap: userFlinkList[i].url != '' ? () {
+                  Clipboard.setData(ClipboardData(text: userFlinkList[i].url));
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text('✓  Copied to clipboard'),
+                  ));
+                } : null,
                 onLongPress: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => FlinkDetails(flinkId: userFlinkList[i].id, flinkUrl: userFlinkList[i].url, flinkDescription: userFlinkList[i].description, )));
