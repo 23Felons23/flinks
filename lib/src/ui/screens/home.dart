@@ -43,6 +43,7 @@ class _State extends State<HomePage> {
           return _shouldCloseApp;
         },
         child: Scaffold(
+
             appBar: AppBar(
               title: Text("Flinks"),
             ),

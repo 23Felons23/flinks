@@ -1,4 +1,4 @@
-import 'package:flink_app/src/ui/pages/home.dart';
+import 'package:flink_app/src/ui/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
