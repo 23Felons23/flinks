@@ -30,15 +30,24 @@ class FlinkList extends StatelessWidget {
                           style: TextStyle(fontSize: 15.0),
                         ),
                       ),
-                onTap: userFlinkList[i].url != '' ? () {
-                  Clipboard.setData(ClipboardData(text: userFlinkList[i].url));
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text('✓  Copied to clipboard'),
-                  ));
-                } : null,
+                onTap: userFlinkList[i].url != ''
+                    ? () {
+                        Clipboard.setData(
+                            ClipboardData(text: userFlinkList[i].url));
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text('✓  Copied to clipboard'),
+                        ));
+                      }
+                    : null,
                 onLongPress: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => FlinkDetails(flinkId: userFlinkList[i].id, flinkUrl: userFlinkList[i].url, flinkDescription: userFlinkList[i].description, )));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => FlinkDetails(
+                                flinkId: userFlinkList[i].id,
+                                flinkUrl: userFlinkList[i].url,
+                                flinkDescription: userFlinkList[i].description,
+                              )));
                 },
               );
             },
