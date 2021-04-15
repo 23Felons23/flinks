@@ -34,4 +34,8 @@ class DatabaseService {
       'description': description,
     });
   }
+
+  deleteFlink(String flinkId) {
+    return _db.collection('users').doc(user.uid).collection('flinks').doc(flinkId).delete();
+  }
 }

@@ -29,7 +29,10 @@ class _FlinkDetailsState extends State<FlinkDetails> {
   void _handleSave() async {
     await db.updateFlink(widget.flinkId, _urlTextController.text,
         _descriptionTextController.text);
+  }
 
+  void _handleDelete() async {
+    await db.deleteFlink(widget.flinkId);
   }
 
   @override
@@ -59,7 +62,12 @@ class _FlinkDetailsState extends State<FlinkDetails> {
           elevation: 0.0,
           backgroundColor: Color(0x424242),
           actions: <Widget>[
-            IconButton(icon: Icon(Icons.delete_outlined), onPressed: () {})
+            IconButton(
+                icon: Icon(Icons.delete_outlined),
+                onPressed: () {
+                  _handleDelete();
+                  Navigator.pop(context);
+                })
           ],
         ),
         body: Padding(
