@@ -9,21 +9,28 @@ class FlinkForm extends StatefulWidget {
 class _FlinkFormState extends State<FlinkForm> {
   //final _titleTextController = TextEditingController();
 
-  final _linkTextController = TextEditingController();
+  final _urlTextController = TextEditingController();
   final _descriptionTextController = TextEditingController();
-  bool _isLinkInputFilled = false;
+  bool _isUrlInputFilled = false;
   bool _isDescriptionInputFilled = false;
 
   DatabaseService db = DatabaseService();
+
   void _handleSave() async {
-    await db.addFlink(_linkTextController.text, _descriptionTextController.text);
+    await db.addFlink(_urlTextController.text, _descriptionTextController.text);
+    _urlTextController.clear();
+    _descriptionTextController.clear();
+    setState(() {
+      _isUrlInputFilled = false;
+      _isDescriptionInputFilled = false;
+    });
   }
 
   @override
   void dispose() {
     // Clean up the controllers when the widget is disposed.
     //_titleTextController.dispose();
-    _linkTextController.dispose();
+    _urlTextController.dispose();
     _descriptionTextController.dispose();
     super.dispose();
   }
@@ -35,24 +42,22 @@ class _FlinkFormState extends State<FlinkForm> {
       padding: new EdgeInsets.fromLTRB(30.0, 45.0, 30.0, 5.0),
       child: Column(children: [
         /**TextField(
-          controller: _titleTextController,
-          decoration:
-              InputDecoration(labelText: 'Title', border: OutlineInputBorder()),
-        ),
-        SizedBox(height: 20.0),**/
+            controller: _titleTextController,
+            decoration:
+            InputDecoration(labelText: 'Title', border: OutlineInputBorder()),
+            ),
+            SizedBox(height: 20.0),**/
         TextField(
-          controller: _linkTextController,
+          controller: _urlTextController,
           onChanged: (String text) {
             setState(() {
-              _isLinkInputFilled = text.length > 0;
+              _isUrlInputFilled = text.length > 0;
             });
           },
           decoration:
               InputDecoration(labelText: 'URL', border: OutlineInputBorder()),
         ),
-
         SizedBox(height: 20.0),
-
         TextField(
           controller: _descriptionTextController,
           onChanged: (String text) {
@@ -63,14 +68,13 @@ class _FlinkFormState extends State<FlinkForm> {
           decoration: InputDecoration(
               labelText: 'Description', border: OutlineInputBorder()),
         ),
-
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Container(
                 margin: EdgeInsets.only(top: 5.0),
                 child: TextButton(
-                    onPressed: _isLinkInputFilled || _isDescriptionInputFilled
+                    onPressed: _isUrlInputFilled || _isDescriptionInputFilled
                         ? () {
                             _handleSave();
                           }
