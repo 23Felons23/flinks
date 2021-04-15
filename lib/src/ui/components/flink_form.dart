@@ -49,6 +49,7 @@ class _FlinkFormState extends State<FlinkForm> {
             SizedBox(height: 20.0),**/
         TextField(
           controller: _urlTextController,
+          autofocus: true,
           maxLines: null,
           onChanged: (String text) {
             setState(() {
