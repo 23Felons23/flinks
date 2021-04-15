@@ -77,58 +77,58 @@ class _FlinkDetailsState extends State<FlinkDetails> {
             children: <Widget>[
               Container(
                   child: Column(
-                children: [
-                  TextFormField(
-                    controller: _urlTextController,
-                    onChanged: (String text) {
-                      setState(() {
-                        _isUrlInputFilled = text.length > 0;
-                      });
-                    },
-                    maxLines: null,
-                    style:
-                        TextStyle(fontSize: 22.0, fontWeight: FontWeight.w500),
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        labelText: "URL",
-                        suffixIcon: _isUrlInputFilled
-                            ? IconButton(
-                                icon: Icon(Icons.close),
-                                onPressed: () {
-                                  _urlTextController.clear();
-                                  setState(() {
-                                    _isUrlInputFilled = false;
-                                  });
-                                },
-                              )
-                            : Icon(null)),
-                  ),
-                  TextFormField(
-                    controller: _descriptionTextController,
-                    onChanged: (String text) {
-                      setState(() {
-                        _isDescriptionInputFilled = text.length > 0;
-                      });
-                    },
-                    maxLines: null,
-                    style:
-                        TextStyle(fontSize: 22.0, fontWeight: FontWeight.w400),
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        labelText: "Description",
-                        suffixIcon: _isDescriptionInputFilled
-                            ? IconButton(
-                                icon: Icon(Icons.close),
-                                onPressed: () {
-                                  _descriptionTextController.clear();
-                                  setState(() {
-                                    _isDescriptionInputFilled = false;
-                                  });
-                                },
-                              )
-                            : Icon(null)),
-                  ),
-                ],
+                    children: [
+                      TextFormField(
+                        controller: _urlTextController,
+                        onChanged: (String text) {
+                          setState(() {
+                            _isUrlInputFilled = text.length > 0;
+                          });
+                        },
+                        maxLines: null,
+                        style:
+                            TextStyle(fontSize: 22.0, fontWeight: FontWeight.w500),
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            labelText: "URL",
+                            suffixIcon: _isUrlInputFilled
+                                ? IconButton(
+                                    icon: Icon(Icons.close),
+                                    onPressed: () {
+                                      _urlTextController.clear();
+                                      setState(() {
+                                        _isUrlInputFilled = false;
+                                      });
+                                    },
+                                  )
+                                : Icon(null)),
+                      ),
+                      TextFormField(
+                        controller: _descriptionTextController,
+                        onChanged: (String text) {
+                          setState(() {
+                            _isDescriptionInputFilled = text.length > 0;
+                          });
+                        },
+                        maxLines: null,
+                        style:
+                            TextStyle(fontSize: 22.0, fontWeight: FontWeight.w400),
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            labelText: "Description",
+                            suffixIcon: _isDescriptionInputFilled
+                                ? IconButton(
+                                    icon: Icon(Icons.close),
+                                    onPressed: () {
+                                      _descriptionTextController.clear();
+                                      setState(() {
+                                        _isDescriptionInputFilled = false;
+                                      });
+                                    },
+                                  )
+                                : Icon(null)),
+                      ),
+                    ],
               )),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
