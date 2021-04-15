@@ -39,7 +39,7 @@ class _FlinkFormState extends State<FlinkForm> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.black26,
-      padding: new EdgeInsets.fromLTRB(30.0, 45.0, 30.0, 5.0),
+      padding: new EdgeInsets.fromLTRB(25.0, 15.0, 5.0, 0.0),
       child: Column(children: [
         /**TextField(
             controller: _titleTextController,
@@ -49,30 +49,58 @@ class _FlinkFormState extends State<FlinkForm> {
             SizedBox(height: 20.0),**/
         TextField(
           controller: _urlTextController,
+          maxLines: null,
           onChanged: (String text) {
             setState(() {
               _isUrlInputFilled = text.length > 0;
             });
           },
-          decoration:
-              InputDecoration(labelText: 'URL', border: OutlineInputBorder()),
+          style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w500),
+          decoration: InputDecoration(
+              contentPadding: EdgeInsets.only(bottom: 15.0),
+              labelText: 'URL',
+              border: InputBorder.none,
+              suffixIcon: _isUrlInputFilled
+                  ? IconButton(
+                      icon: Icon(Icons.close),
+                      onPressed: () {
+                        _urlTextController.clear();
+                        setState(() {
+                          _isUrlInputFilled = false;
+                        });
+                      },
+                    )
+                  : Icon(null)),
         ),
-        SizedBox(height: 20.0),
         TextField(
           controller: _descriptionTextController,
+          maxLines: null,
           onChanged: (String text) {
             setState(() {
               _isDescriptionInputFilled = text.length > 0;
             });
           },
+          style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w400),
           decoration: InputDecoration(
-              labelText: 'Description', border: OutlineInputBorder()),
+              contentPadding: EdgeInsets.all(0.0),
+              labelText: 'Description',
+              border: InputBorder.none,
+              suffixIcon: _isDescriptionInputFilled
+                  ? IconButton(
+                      icon: Icon(Icons.close),
+                      onPressed: () {
+                        _descriptionTextController.clear();
+                        setState(() {
+                          _isDescriptionInputFilled = false;
+                        });
+                      },
+                    )
+                  : Icon(null)),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Container(
-                margin: EdgeInsets.only(top: 5.0),
                 child: TextButton(
                     onPressed: _isUrlInputFilled || _isDescriptionInputFilled
                         ? () {
@@ -82,7 +110,7 @@ class _FlinkFormState extends State<FlinkForm> {
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
                           EdgeInsets.symmetric(
-                              vertical: 12.0, horizontal: 20.0)),
+                              vertical: 10.0, horizontal: 18.0)),
                       foregroundColor: MaterialStateProperty.resolveWith<Color>(
                           (Set<MaterialState> states) {
                         if (states.contains(MaterialState.disabled))

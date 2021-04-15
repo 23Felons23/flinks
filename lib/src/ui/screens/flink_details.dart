@@ -83,7 +83,6 @@ class _FlinkDetailsState extends State<FlinkDetails> {
                     onChanged: (String text) {
                       setState(() {
                         _isUrlInputFilled = text.length > 0;
-                        print(_urlTextController.text != widget.flinkUrl);
                       });
                     },
                     maxLines: null,
