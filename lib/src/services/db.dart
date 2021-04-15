@@ -35,7 +35,10 @@ class DatabaseService {
     });
   }
 
-  Future<void> deleteFlink(String flinkId) {
-    return _db.collection('users').doc(user.uid).collection('flinks').doc(flinkId).delete();
+  Future<Flink> deleteFlink(String flinkId) async {
+      DocumentSnapshot doc = await _db.collection('users').doc(user.uid).collection('flinks').doc(flinkId).get();
+
+      _db.collection('users').doc(user.uid).collection('flinks').doc(flinkId).delete();
+      return Flink.fromFirestore(doc);
   }
 }

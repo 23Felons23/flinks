@@ -1,6 +1,8 @@
 import 'package:flink_app/src/services/db.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flink_app/src/models/flink.dart';
+
 
 class FlinkDetails extends StatefulWidget {
   final flinkId;
@@ -32,7 +34,17 @@ class _FlinkDetailsState extends State<FlinkDetails> {
   }
 
   void _handleDelete() async {
-    await db.deleteFlink(widget.flinkId);
+    Flink deletedFlink = await db.deleteFlink(widget.flinkId);
+
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text('Flink successfully deleted'),
+      action: SnackBarAction(
+        label: 'Undo',
+        onPressed: () async {
+          await db.addFlink(deletedFlink.url, deletedFlink.description);
+        },
+      ),
+    ));
   }
 
   @override
